@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Каталог
+{% endblock %}
+
+{% block content %}
+    {% for cat in cat_block%}
+    <div class="catalog">
+        <h2>{{ cat.title }}</h2>
+        <a href="{{url_for('catalog', type=cat.link)}}">{{ cat.description }}</a>
+        <img src="{{ cat.img }}" alt="картинка">
+    </div>
+{%endfor%}
+{% endblock %}

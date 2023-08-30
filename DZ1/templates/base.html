@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="/static/css/style.css">
+        <title>
+            {% block title %}
+        Мой сайт
+        {% endblock %}
+        </title>
+    </head>
+    <body>
+        <header>
+            <div class="container-fluid">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a href="/about/" class="nav-link">О нас</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/contact/" class="nav-link">Контакты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/catalog/" class="nav-link">Каталог</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <div class="body">
+            {% block content %}
+            Страница не заполнена
+            {% endblock %}
+        </div>
+        <footer>
+            <div class="footer">
+                <hr>
+                <p>Все права защищены &copy;</p>
+            </div>
+        </footer>
+        <!-- <script src="/static/js/bootstrap.bundle.min.js"></script> -->
+    </body>
+</html>

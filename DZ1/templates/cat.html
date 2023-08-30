@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Товар
+{% endblock %}
+
+{% block content %}
+<div class="catalog">
+    <h2>{{ cat.title }}</h2>
+    <p>{{ cat.description }}</p>
+    <img src="{{ cat.img }}" alt="картинка">
+</div>
+{% endblock %}
