@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,
+    initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
+    <title>
+      {% block title %}
+        Мой сайт
+      {% endblock %}
+    </title>
+  </head>
+  <body>
+    <nav>
+      <h2>Задача</h2>
+      <p>Создать страницу, на которой будет форма для ввода имени и электронной почты, при отправке которой будет создан cookie-файл с данными пользователя, а также будет произведено перенаправление на страницу приветствия, где будет отображаться имя пользователя. На странице приветствия должна быть кнопка «Выйти», при нажатии на которую будет удалён cookie-файл с данными пользователя и произведено перенаправление на страницу ввода имени и электронной почты.</p>
+      <a href="{{ url_for('pswd_form') }}">Введи имя и почту</a>
+      <br />
+    </nav>
+    {% block content %}
+
+    {% endblock %}
+    <div class="row fixed-bottom modal-footer">
+      <hr />
+      <p>Все права защищены &copy;</p>
+    </div>
+  </body>
+</html>

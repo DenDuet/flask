@@ -1,0 +1,22 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 50px;
+    font-size: 20px;
+}
+
+p {
+    font-size: 20px;
+
+}
+form {
+    padding: 20px;
+}
+
+h1 {
+    padding-top: 50px;
+}
+
+h2 {
+    padding-top: 25px;
+}
