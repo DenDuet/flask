@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{ super() }} - {{ title }}
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+    {% for good in goods %}
+      <p class="col-12 col-md-6">
+        ID товара: {{ good.id }}<br />
+        Наименование товара: {{ good.goods_name }}<br />
+        Описание товара: {{ good.description }}<br />
+        Цена товара: {{ good.price }}
+      </p>
+      <div class="delete">
+        <a href="goods/delete/{{ good.id }}">Удалить товар</a>
+      </div>
+      <div class="edit">
+        <a href="goods/edit/{{ good.id }}">Изменить товар</a>
+      </div>
+      <br />
+      <br />
+    {% endfor %}
+  </div>
+  <form action="/goods/create" method="post">
+    <div class="input">
+      <div class="blockinput">
+        <input type="text" name="goods_name" placeholder="Наименование товара" />
+      </div>
+
+      <div class="blockinput">
+        <input type="text" name="description" placeholder="Описание товара" />
+      </div>
+
+      <div class="blockinput">
+        <input type="floatformat" name="price" placeholder="Цена товара" />
+      </div>
+    </div>
+    <div>
+      <input class="in_submit" type="submit" value="Добавить товар" />
+    </div>
+  </form>
+  <br /> <br /> <br />
+  <br />
+{% endblock %}

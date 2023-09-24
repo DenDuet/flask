@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{ super() }} - {{ title }}
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+    {% for user in users %}
+      <p class="col-12 col-md-6">
+        ID пользователя: {{ user.id }}<br />
+        Имя пользователя: {{ user.username }}<br />
+        Фамилия пользователя: {{ user.sername }}<br />
+        Email пользователя: {{ user.email }}<br />
+        Пароль пользователя: {{ user.password }}
+      </p>
+      <div class="delete">
+        <a href="users/delete/{{ user.id }}">Удалить пользователя</a>
+      </div>
+      <div class="edit">
+        <a href="users/edit/{{ user.id }}">Изменить пользователя</a>
+      </div>
+      <br />
+      <br />
+    {% endfor %}
+  </div>
+  <form action="/users/create" method="post">
+    <div class="input">
+      <div class="blockinput">
+        <input type="text" name="username" placeholder="Имя" />
+      </div>
+
+      <div class="blockinput">
+        <input type="text" name="sername" placeholder="Фамилия" />
+      </div>
+
+      <div class="blockinput">
+        <input type="email" name="email" placeholder="e-mail" />
+      </div>
+
+      <div class="blockinput">
+        <input type="text" name="password" placeholder="Пароль" />
+      </div>
+    </div>
+    <div>
+      <input class="in_submit" type="submit" value="Добавить пользователя" />
+    </div>
+  </form>
+  <br /> <br /> <br />
+  <br />
+{% endblock %}

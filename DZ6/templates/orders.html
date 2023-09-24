@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{ super() }} - {{ title }}
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+    {% for order in orders %}
+      <p class="col-12 col-md-6">
+        ID заказа: {{ order.id }}<br />
+        Имя пользователя: {{ order.users.username }}<br />
+        Наименование товара: {{ order.goods.goods_name }}<br />
+        Дата заказа: {{ order.order_date }}<br />
+        Статус заказа: {{ order.order_status }}
+      </p>
+      <div class="delete">
+        <a href="orders/delete/{{ order.id }}">Удалить заказ</a>
+      </div>
+      <div class="edit">
+        <a href="orders/edit/{{ order.id }}">Изменить заказ</a>
+      </div>
+      <br />
+      <br />
+    {% endfor %}
+  </div>
+  <form action="/orders/create" method="post">
+    <div class="input">
+      <div class="blockinput">
+        <input type="text" name="username" list="character" placeholder="Выберите имя пользователя" />
+        <datalist id="character">
+          {% for user in users %}
+            <option value="{{ user.username }}"></option>
+          {% endfor %}
+        </datalist>
+      </div>
+
+      <div class="blockinput">
+        <input type="text" name="goods_name" list="goods" placeholder="Выберите товар" />
+        <datalist id="goods">
+          {% for good in goods %}
+            <option value="{{ good.goods_name }}"></option>
+          {% endfor %}
+        </datalist>
+      </div>
+
+      <div class="blockinput">
+        <input type="text" name="order_date" placeholder="Дата создания" />
+      </div>
+
+      <div class="blockinput">
+        <input type="text" name="order_status" placeholder="Статус" />
+      </div>
+    </div>
+    <div>
+      <input class="in_submit" type="submit" value="Добавить заказ" />
+    </div>
+  </form>
+  <br /><br /><br /><br /><br />
+{% endblock %}

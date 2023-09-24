@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{ super() }} - {{ title }}
+{% endblock %}
+
+{% block content %}
+  <form action="/users/update/{{ users.id }}" method="post">
+    <div class="input">
+      <div class="blockinput">
+        <input type="text" name="username" placeholder={{ users.username }} />
+      </div>
+      <div class="blockinput">
+        <input type="text" name="sername" placeholder={{ users.sername }} />
+      </div>
+
+      <div class="blockinput">
+        <input type="email" name="email" placeholder={{ users.email }} />
+      </div>
+
+      <div class="blockinput">
+        <input type="password" name="password" placeholder={{ users.password }} />
+      </div>
+    </div>
+    <div>
+      <input class="in_submit" type="submit" value="Сохранить изменения" />
+    </div>
+  </form>
+{% endblock %}
